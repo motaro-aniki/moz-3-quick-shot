@@ -1,0 +1,77 @@
+{
+  "name": "quick-shot",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "main": "electron/main.js",
+  "scripts": {
+    "dev": "vite --port 5174 --strictPort",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "electron:dev": "node electron/dev-runner.js",
+    "build:ai-worker": "node -e \"const cp=require('child_process'),fs=require('fs'),path=require('path'); cp.spawnSync('C:\\\\Program Files\\\\dotnet\\\\dotnet.exe',['publish','ai-worker/QSAIWorker.csproj','-c','Release','-r','win-x64','--self-contained'],{stdio:'inherit',shell:false}); const src=path.join('ai-worker','bin','Release','net8.0-windows','win-x64','publish'); const dst=path.join('resources','ai-worker'); fs.mkdirSync(dst,{recursive:true}); for(const f of fs.readdirSync(src)){fs.copyFileSync(path.join(src,f),path.join(dst,f));} console.log('Copied publish output to resources/ai-worker/');\"",
+    "build:electron": "vite build && node -e \"delete process.env.ELECTRON_RUN_AS_NODE; require('child_process').spawnSync('npx', ['electron-builder'], {stdio: 'inherit', shell: true})\""
+  },
+  "build": {
+    "appId": "com.seven.moz3quickshot",
+    "productName": "MOZ-3 Quick Shot",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "public/logo/**/*"
+    ],
+    "extraResources": [
+      {
+        "from": "public/logo/Quick_Shot.png",
+        "to": "logo/Quick_Shot.png"
+      },
+      {
+        "from": "resources/ai-worker",
+        "to": "ai-worker",
+        "filter": ["**/*"]
+      },
+      {
+        "from": "models",
+        "to": "models",
+        "filter": ["*.onnx"]
+      }
+    ],
+    "asarUnpack": [
+      "ai-worker/**/*"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "public/logo/Quick_Shot.png",
+      "asarUnpack": [
+        "ai-worker/**/*"
+      ]
+    },
+    "compression": "maximum"
+  },
+  "dependencies": {
+    "@huggingface/transformers": "^3.8.1",
+    "@imgly/background-removal-node": "^1.4.5",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.1.1",
+    "concurrently": "^9.2.1",
+    "cross-env": "^10.1.0",
+    "electron": "^40.8.0",
+    "electron-builder": "^26.8.1",
+    "eslint": "^9.39.1",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.4.24",
+    "globals": "^16.5.0",
+    "vite": "^7.3.1",
+    "wait-on": "^9.0.4"
+  }
+}

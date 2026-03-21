@@ -1,0 +1,13 @@
+# ビルド成果物・インストーラー
+release/
+dist/
+out/
+*.exe
+*.dmg
+*.zip
+
+# AIモデル（必要に応じてGitHub Releasesで別途配布する）
+models/*.onnx
+
+# Node.jsの一時ファイル（もしあれば）
+node_modules/

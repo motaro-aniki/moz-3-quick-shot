@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AssemblyName>QSAIWorker</AssemblyName>
+    <RootNamespace>QSAIWorker</RootNamespace>
+    <!-- 単一ファイル・自己完結型でビルド (dotnet不要で動く) -->
+    <PublishSingleFile>true</PublishSingleFile>
+    <SelfContained>true</SelfContained>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
+    <!-- ネイティブDLL（onnxruntime等）をEXE内に同梱して実行時に自己展開させる -->
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- DirectML: NVIDIA/AMD/Intel いずれのGPUでも動く -->
+    <PackageReference Include="Microsoft.ML.OnnxRuntime.DirectML" Version="1.20.1" />
+    <!-- ImageSharp: GDI+不要の純粋マネージドPNG I/O -->
+    <PackageReference Include="SixLabors.ImageSharp" Version="3.1.12" />
+  </ItemGroup>
+</Project>

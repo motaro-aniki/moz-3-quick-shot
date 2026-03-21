@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "dgSpecHash": "xV+j7rRVdNU=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\seven\\.gemini\\antigravity\\scratch\\quick-shot\\ai-worker\\QSAIWorker.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\seven\\.nuget\\packages\\microsoft.ai.directml\\1.15.2\\microsoft.ai.directml.1.15.2.nupkg.sha512",
+    "C:\\Users\\seven\\.nuget\\packages\\microsoft.ml.onnxruntime.directml\\1.20.1\\microsoft.ml.onnxruntime.directml.1.20.1.nupkg.sha512",
+    "C:\\Users\\seven\\.nuget\\packages\\microsoft.ml.onnxruntime.managed\\1.20.1\\microsoft.ml.onnxruntime.managed.1.20.1.nupkg.sha512",
+    "C:\\Users\\seven\\.nuget\\packages\\microsoft.net.illink.tasks\\8.0.25\\microsoft.net.illink.tasks.8.0.25.nupkg.sha512",
+    "C:\\Users\\seven\\.nuget\\packages\\sixlabors.imagesharp\\3.1.12\\sixlabors.imagesharp.3.1.12.nupkg.sha512",
+    "C:\\Users\\seven\\.nuget\\packages\\system.memory\\4.5.5\\system.memory.4.5.5.nupkg.sha512",
+    "C:\\Users\\seven\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\8.0.25\\microsoft.netcore.app.runtime.win-x64.8.0.25.nupkg.sha512",
+    "C:\\Users\\seven\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\8.0.25\\microsoft.windowsdesktop.app.runtime.win-x64.8.0.25.nupkg.sha512",
+    "C:\\Users\\seven\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\8.0.25\\microsoft.aspnetcore.app.runtime.win-x64.8.0.25.nupkg.sha512"
+  ],
+  "logs": []
+}

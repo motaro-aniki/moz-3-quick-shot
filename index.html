@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quick Shot</title>
+  <script>
+    // Vite + Electron Renderer environment polyfill for @imgly & onnxruntime Node features
+    window.process = window.process || { env: {} };
+    const originalRequire = window.require;
+    window.require = function (module) {
+      if (module === 'worker_threads') return { Worker: class { }, isMainThread: true };
+      if (module === 'fs') return { readFileSync: () => '', existsSync: () => false };
+      if (module === 'path') return { join: (...args) => args.join('/') };
+      if (module === 'crypto') return { getRandomValues: (arr) => window.crypto.getRandomValues(arr) };
+      if (module === 'os') return { cpus: () => [] };
+      return originalRequire ? originalRequire(module) : {};
+    };
+  </script>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+
+</html>
