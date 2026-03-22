@@ -11,3 +11,10 @@ models/*.onnx
 
 # Node.jsの一時ファイル（もしあれば）
 node_modules/
+
+# .NETビルド中間生成物（絶対パスが含まれるため除外）
+ai-worker/obj/
+ai-worker/bin/
+
+# Claude Codeローカル設定（絶対パスが含まれるため除外）
+.claude/
